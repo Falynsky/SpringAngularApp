@@ -16,7 +16,8 @@ public class ConfigurationWebService {
 
     @Autowired private AuthProvider authProvider;
 
-    @RequestMapping(method = GET, value = "/model")
+    @GetMapping("/model")
+    //polecam bardziej korzystać z tej adnotacji, jest nowsza :) ta sama sytuacja dla np, @PostMapping 
     public ConfigurationModelResponse model() {
         ConfigurationModelResponse response = new ConfigurationModelResponse();
         response.setHasUserViewAccess(authProvider.hasRole(ROLE_USER_VIEW));
